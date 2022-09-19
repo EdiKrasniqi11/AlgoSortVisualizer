@@ -1,0 +1,13 @@
+.sort-array{
+    min-height:90vh;
+    display:flex;
+    font-size:small;
+    overflow: hidden;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    line-height:100%;
+}
+.array-item{
+    background: var(--mid-green);
+    display:flex;
+}
