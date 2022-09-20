@@ -6,7 +6,7 @@ export default function Sorter(props){
     return(
         <div className="sort-array">
             {props.array.map((value, idx) =>(
-                <div key={idx} className="array-item" style={{height: `${value}px`, width: `calc(55%/${children})`}}>
+                <div key={idx} id={value} className="array-item" style={{height: `${value}px`, width: `calc(55%/${children})`}}>
                 </div>
                 )
             )}

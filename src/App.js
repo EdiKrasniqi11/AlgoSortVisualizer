@@ -1,6 +1,7 @@
 import './App.css'
 import Header from './components/header/Header'
 import Sorter from './components/sorter/Sorter'
+import MergeSort from './components/algorithms/MergeSort'
 import { useEffect, useState } from 'react'
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
 
   return (
     <div className="main-container">
-      <Header generateRandom={() => generateRandomArray(Math.floor(Math.random()*(100-21)+20))} setArray={setArray}/>
+      <Header generateRandom={() => generateRandomArray(Math.floor(Math.random()*(100-21)+20))} setArray={setArray} array={array}/>
       <Sorter array={array}/>
     </div>
   );

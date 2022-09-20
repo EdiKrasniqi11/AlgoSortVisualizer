@@ -10,4 +10,5 @@
 .array-item{
     background: var(--mid-green);
     display:flex;
+    border-radius: 25px 25px 0px 0px;
 }
