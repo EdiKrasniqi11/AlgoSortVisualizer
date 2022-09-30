@@ -1,38 +1,54 @@
-export default function MergeSort(array, stopLength){
-    let arrLength = array.length
-    let midIdx = Math.floor(arrLength / 2);
-    if(arrLength <= 1){
-        return
-    }
-    let leftHalf = array.slice(0,midIdx)
-    let rightHalf = array.slice(midIdx,arrLength)
-    MergeSort(leftHalf)
-    MergeSort(rightHalf)
+export default function getMergeAnimations(array){
+  const animations = []
+  const auxiliaryArray = array.slice()
 
-    merge(array, leftHalf, rightHalf)
-    if(array.length == stopLength){
-        return array
-    }
+  mergeSortHelper(array, 0, array.length - 1, auxiliaryArray, animations)
+
+  console.log(array)
+  return animations
 }
 
+function mergeSortHelper(array, startIndex, endIndex, auxiliaryArray, animations){
+  if(startIndex === endIndex){
+    return
+  }
+  let midIndex = Math.floor((startIndex + endIndex)/2)
+  mergeSortHelper(auxiliaryArray, startIndex, midIndex, array, animations)
+  mergeSortHelper(auxiliaryArray, midIndex+1, endIndex, array, animations)
 
-function merge(array, leftHalf, rightHalf){
-    let leftSize = leftHalf.length
-    let rightSize = rightHalf.length
-    let i = 0
-    let j = 0
-    let k = 0
-    while(i < leftSize && j < rightSize){
-        if(leftHalf[i] - rightHalf[j] < 0){
-            array[k++] = leftHalf[i++]
-        }else{
-            array[k++] = rightHalf[j++]
-        }
+  merge(array, startIndex, midIndex, endIndex, auxiliaryArray, animations)
+}
+
+function merge(array, startIndex, midIndex, endIndex, auxiliaryArray, animations){
+  let i = startIndex
+  let j = midIndex + 1
+  let k = startIndex
+  while(i <= midIndex && j <= endIndex){
+    //once for comparison
+    animations.push([i,j])
+    //twice for changing the color back
+    animations.push([i,j])
+    if(auxiliaryArray[i] <= auxiliaryArray[j]){
+      //changing the height of the array bar
+      animations.push([k, auxiliaryArray[i]])
+      array[k++] = auxiliaryArray[i++]
     }
-    while(i < leftSize){
-        array[k++] = leftHalf[i++]
+    else{
+      animations.push([k, auxiliaryArray[j]])
+      array[k++] = auxiliaryArray[j++]
     }
-    while(j < rightSize){
-        array[k++] = rightHalf[j++]
-    }
+  }
+  //any leftover indexes after comparison will get sorted now
+  while(i <= midIndex){
+    animations.push([i,i])
+    animations.push([i,i])
+    animations.push([k, auxiliaryArray[i]])
+    array[k++] = auxiliaryArray[i++]
+  }
+  while(j <= endIndex){
+    animations.push([j,j])
+    animations.push([j,j])
+    animations.push([k, auxiliaryArray[j]])
+    array[k++] = auxiliaryArray[j++]
+  }
 }

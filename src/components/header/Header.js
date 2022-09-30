@@ -33,32 +33,26 @@ export default function Header(props){
             e.preventDefault();
         }
     }
-    
-    function Merge(){
-        let propArray = props.array
-        MergeSort(propArray)
-        props.setArray(propArray)
-    }
 
     return (
         <>
         <header className="header">
             <button onClick={props.generateRandom}>Generate Random Array</button>
             <button onClick={() => {setToggle(1); document.getElementById('form').reset(); setArrayLength(0)}}>Generate Custom Array</button>
-            <button onClick={() => {Merge()}}>Merge Sort</button>  
+            <button onClick={() => props.mergeSort()}>Merge Sort</button>  
         </header>
         <Popup toggle={toggle} deactivate={() => {setToggle(0)}}>
             <div className="popup-inner">
                 <form onSubmit={(event) => checkSubmit(event)} id="form">
                     <select onChange={(e) => {setArrayLength(e.target.value)}}>
                         <option value={0}>Select Number Of Elements</option>
-                        {Array.from({ length: 20 }).map((value,idx) =>(
-                           <option value={idx+1} key={idx} required>{idx+1}</option>
+                        {Array.from({ length: 19 }).map((value,idx) =>(
+                           <option value={idx+2} key={idx} required>{idx+2}</option>
                         ))}
                     </select>
                     <div className="element-input-container">
                         {Array.from({ length: arrayLength }).map((value,idx) =>(
-                            <input type="number" key={idx} onChange={(e) => tempCustomArray[idx]=e.target.value} value={tempCustomArray[idx]}/>
+                            <input type="number" min="1" key={idx} onChange={(e) => tempCustomArray[idx]=parseInt(e.target.value)} value={tempCustomArray[idx]}/>
                         ))}
                         <h2 className="reset-button" onClick={() => {document.getElementById('form').reset(); setArrayLength(0)}}>Reset</h2>
                     </div>
