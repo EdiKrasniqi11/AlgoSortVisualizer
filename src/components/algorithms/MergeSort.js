@@ -3,8 +3,6 @@ export default function getMergeAnimations(array){
   const auxiliaryArray = array.slice()
 
   mergeSortHelper(array, 0, array.length - 1, auxiliaryArray, animations)
-
-  console.log(array)
   return animations
 }
 
@@ -27,7 +25,7 @@ function merge(array, startIndex, midIndex, endIndex, auxiliaryArray, animations
     //once for comparison
     animations.push([i,j])
     //twice for changing the color back
-    animations.push([i,j])
+    animations.push([i,j]) 
     if(auxiliaryArray[i] <= auxiliaryArray[j]){
       //changing the height of the array bar
       animations.push([k, auxiliaryArray[i]])

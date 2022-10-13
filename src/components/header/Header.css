@@ -19,6 +19,9 @@ button:hover{
 .popup-overlay {
     color:aliceblue
 }
+.disabled{
+    pointer-events: none;
+}
 select{
     height:40px;
     width:220px;
