@@ -15,14 +15,13 @@ export default function animateQuickSort(animations, arrayItems, normalBarColor,
             }, i*animationSpeed)
             break
           case 'move pivot':
-            [first, second, type] = animation
+            [first, second, firstHeight, secondHeight, type] = animation
             firstStyle = arrayItems[first].style
             secondStyle = arrayItems[second].style
-            tempHeight = firstStyle.height
             setTimeout(() => {
               firstStyle.backgroundColor = normalBarColor
-              firstStyle.height = secondStyle.height
-              secondStyle.height = tempHeight
+              firstStyle.height = `${secondHeight}px`
+              secondStyle.height = `${firstHeight}px`
               secondStyle.backgroundColor = pivotBarColor
             }, i*animationSpeed)
             break

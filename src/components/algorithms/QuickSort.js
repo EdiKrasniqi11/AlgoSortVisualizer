@@ -16,7 +16,7 @@ function quickSort(array, startIndex, endIndex, animations){
         animations.push([pivotPointer, 'deselect pivot'])
 
         // sending the pivot to the end
-        animations.push([pivotPointer, endIndex,'move pivot'])
+        animations.push([pivotPointer, endIndex, array[pivotPointer], array[endIndex], 'move pivot'])
         swap(array, pivotPointer, endIndex)
 
         let i = partition(array, startIndex, endIndex, animations)

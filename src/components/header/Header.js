@@ -36,10 +36,10 @@ export default function Header(props){
     return (
         <>
         <header className="header">
-            <button onClick={props.generateRandom}>Generate Random Array</button>
-            <button onClick={() => {setToggle(1); document.getElementById('form').reset(); setArrayLength(0)}}>Generate Custom Array</button>
-            <button onClick={() => props.mergeSort()}>Merge Sort</button>
-            <button onClick={() => props.quickSort()}>Quick Sort</button>
+            <button className="nav-buttons" onClick={props.generateRandom}>Generate Random Array</button>
+            <button className="nav-buttons" onClick={() => {setToggle(1); document.getElementById('form').reset(); setArrayLength(0)}}>Generate Custom Array</button>
+            <button className="nav-buttons" onClick={() => {props.mergeSort()}}>Merge Sort</button>
+            <button className="nav-buttons" onClick={() => props.quickSort()}>Quick Sort</button>
         </header>
         <Popup toggle={toggle} deactivate={() => {setToggle(0)}}>
             <div className="popup-inner">

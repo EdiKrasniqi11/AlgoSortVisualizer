@@ -13,7 +13,6 @@ function App() {
   const normalBarColor = '#469c9a'
   const compareBarColor = 'purple'
   const pivotBarColor = 'yellow'
-  const [disabledToggle, setDisabledToggle] = useState('')
 
   useEffect(() => {
       generateRandomArray(100)
@@ -43,9 +42,10 @@ function App() {
   }
 
   return (
-    <div className="main-container"> 
+    <div className='main-container'>
       <Header generateRandom={() => generateRandomArray(Math.floor(Math.random()*(100-21)+20))} setArray={setArray} mergeSort={mergeSort} quickSort={quickSort}/>
       <Sorter array={array} animationSpeed={animationSpeed} setAnimationSpeed={setAnimationSpeed}/>
+      <button>Sort</button>
     </div>
   );
 }
