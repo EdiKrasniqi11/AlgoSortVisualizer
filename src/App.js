@@ -3,15 +3,18 @@ import Header from './components/header/Header'
 import Sorter from './components/sorter/Sorter'
 import getMergeAnimations from './components/algorithms/MergeSort'
 import getQuickAnimations from './components/algorithms/QuickSort'
+import getBubbleAnimations from './components/algorithms/BubbleSort'
 import animateMergeSort from './components/algorithmAnimators/mergeSortAnimator'
 import animateQuickSort from './components/algorithmAnimators/quickSortAnimator'
+import animateBubbleSort from './components/algorithmAnimators/bubbleSortAnimator'
 import { useCallback, useEffect, useState } from 'react'
+import bubbleSort from './components/algorithms/BubbleSort'
 
 function App() {
   const [array,setArray] = useState([])
-  const [animationSpeed, setAnimationSpeed] = useState(20)
+  const [animationSpeed, setAnimationSpeed] = useState(10)
   const normalBarColor = '#469c9a'
-  const compareBarColor = 'purple'
+  const compareBarColor = '#A020F0'
   const pivotBarColor = 'yellow'
 
   useEffect(() => {
@@ -30,22 +33,29 @@ function App() {
   function mergeSort(){
     const animations = getMergeAnimations(array)
     const arrayItems = document.getElementsByClassName('array-item')
-
-    animateMergeSort(animations, arrayItems, normalBarColor, compareBarColor, animationSpeed)
+    const buttons = [].concat(Array.from(document.getElementsByClassName('nav-button')), Array.from(document.getElementsByClassName('animationSpeedDiv')))
+    animateMergeSort(animations, arrayItems, normalBarColor, compareBarColor, animationSpeed, buttons)
   }
 
   function quickSort(){
     const animations = getQuickAnimations(array)
     const arrayItems = document.getElementsByClassName('array-item')
-
-    animateQuickSort(animations, arrayItems, normalBarColor, compareBarColor, pivotBarColor, animationSpeed)
+    const buttons = [].concat(Array.from(document.getElementsByClassName('nav-button')), Array.from(document.getElementsByClassName('animationSpeedDiv')))
+    animateQuickSort(animations, arrayItems, normalBarColor, compareBarColor, pivotBarColor, animationSpeed, buttons)
   }
+
+  function bubbleSort(){
+    const animations = getBubbleAnimations(array)
+    const arrayItems = document.getElementsByClassName('array-item')
+    const buttons = [].concat(Array.from(document.getElementsByClassName('nav-button')), Array.from(document.getElementsByClassName('animationSpeedDiv')))
+
+    animateBubbleSort(animations, arrayItems, normalBarColor, compareBarColor, animationSpeed, buttons)
+  } 
 
   return (
     <div className='main-container'>
-      <Header generateRandom={() => generateRandomArray(Math.floor(Math.random()*(100-21)+20))} setArray={setArray} mergeSort={mergeSort} quickSort={quickSort}/>
-      <Sorter array={array} animationSpeed={animationSpeed} setAnimationSpeed={setAnimationSpeed}/>
-      <button>Sort</button>
+      <Header generateRandom={() => generateRandomArray(Math.floor(Math.random()*(100-21)+20))} setArray={setArray} mergeSort={mergeSort} quickSort={quickSort} bubbleSort={bubbleSort}/>
+      <Sorter array={array} animationSpeed={animationSpeed} setAnimationSpeed={setAnimationSpeed} normalBarColor={normalBarColor} compareBarColor={compareBarColor} pivotBarColor={pivotBarColor}/>
     </div>
   );
 }
