@@ -33,21 +33,21 @@ function App() {
   function mergeSort(){
     const animations = getMergeAnimations(array)
     const arrayItems = document.getElementsByClassName('array-item')
-    const buttons = [].concat(Array.from(document.getElementsByClassName('nav-button')), Array.from(document.getElementsByClassName('animationSpeedDiv')))
+    const buttons = [].concat(Array.from(document.getElementsByClassName('nav-button')), Array.from(document.getElementsByClassName('animationSpeedDiv')), Array.from(document.getElementsByClassName('toggleSwitch')))
     animateMergeSort(animations, arrayItems, normalBarColor, compareBarColor, animationSpeed, buttons)
   }
 
   function quickSort(){
     const animations = getQuickAnimations(array)
     const arrayItems = document.getElementsByClassName('array-item')
-    const buttons = [].concat(Array.from(document.getElementsByClassName('nav-button')), Array.from(document.getElementsByClassName('animationSpeedDiv')))
+    const buttons = [].concat(Array.from(document.getElementsByClassName('nav-button')), Array.from(document.getElementsByClassName('animationSpeedDiv')), Array.from(document.getElementsByClassName('toggleSwitch')))
     animateQuickSort(animations, arrayItems, normalBarColor, compareBarColor, pivotBarColor, animationSpeed, buttons)
   }
 
   function bubbleSort(){
     const animations = getBubbleAnimations(array)
     const arrayItems = document.getElementsByClassName('array-item')
-    const buttons = [].concat(Array.from(document.getElementsByClassName('nav-button')), Array.from(document.getElementsByClassName('animationSpeedDiv')))
+    const buttons = [].concat(Array.from(document.getElementsByClassName('nav-button')), Array.from(document.getElementsByClassName('animationSpeedDiv')), Array.from(document.getElementsByClassName('toggleSwitch')))
 
     animateBubbleSort(animations, arrayItems, normalBarColor, compareBarColor, animationSpeed, buttons)
   } 
