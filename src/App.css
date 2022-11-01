@@ -1,19 +1,20 @@
 :root{
-    --dark-blue: #07142B;
+    --background-color: #07142B;
     --mid-blue: #173C4C;
     --mid-green: #469c9a;
-    --light-green: #BDD1BD;
+    --text-color: #BDD1BD;
 }
 *{
     margin:0;
     padding:0;
-    color:var(--light-green);
+    color:var(--text-color);
     font-family: 'Helvetica Neue', sans-serif;
     font-weight: bold;
 }
 .main-container{
-    background:var(--dark-blue);
+    background-color:var(--background-color);
     min-height:100vh;
+    transition:background-color 0.2s ease-in;
 }
 .sort-array{
     position:relative;
