@@ -13,7 +13,7 @@ button{
     cursor:pointer;
 }
 button:hover{
-    color: var(--mid-green);
+    color: var(--background-color);
     transition:color 0.2s ease-in;
 }
 .popup-overlay {
@@ -33,13 +33,13 @@ select{
 }
 select:focus,select:hover{
     outline:none;
-    background-color:#133644;
+    background-color:var(--background-color);
     box-shadow:0px 0px 0px rgb(0,0,0), inset 0px 0px 7px black;
     cursor:pointer;
     transition:box-shadow 0.2s ease-in, background-color 0.2s ease-in;
 }
 option{
-    background-color: var(--mid-blue);
+    background-color: var(--background-color);
 }
 .popup-inner{
     display:flex;
@@ -66,7 +66,7 @@ input{
 }
 input:focus,input:hover{
     outline:none;
-    background-color:#133644;
+    background-color:var(--background-color);
     box-shadow:0px 0px 0px rgb(0,0,0), inset 0px 0px 7px black;
     transition:box-shadow 0.2s ease-in, background-color 0.2s ease-in;
 }
@@ -81,7 +81,8 @@ input:focus,input:hover{
 }
 .submit-button:focus, .submit-button:hover{
     outline:none;
-    background-color:#133644;
+    color:var(--text-color);
+    background-color:var(--background-color);
     box-shadow:0px 0px 0px rgb(0,0,0), inset 0px 0px 7px black;
     cursor:pointer;
     transition:box-shadow 0.2s ease-in, background-color 0.2s ease-in;
